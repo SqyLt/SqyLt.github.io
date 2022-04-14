@@ -129,19 +129,6 @@
       </tags>
   </entry>
   <entry>
-    <title>高数小题积累</title>
-    <url>/2022/04/14/%E9%AB%98%E6%95%B0%E5%B0%8F%E9%A2%98%E7%A7%AF%E7%B4%AF/</url>
-    <content><![CDATA[<h1 id="高数小题"><a href="#高数小题" class="headerlink" title="高数小题"></a>高数小题</h1><h2 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h2><p><strong>不定积分的小题是高数最基础的部分，在平时的练习中，我抄录了部分典型例题，这部分例题会涵盖大部分不定积分计算的方法，熟练这部分例题可以秒杀不定积分</strong></p>
-<p><img src="/img/math/1.jpg" alt="不定积分（1）"></p>
-]]></content>
-      <categories>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>高数小题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java爬取南通大学教务系统信息</title>
     <url>/2022/04/05/Java%E7%88%AC%E5%8F%96%E5%8D%97%E9%80%9A%E5%A4%A7%E5%AD%A6%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</url>
     <content><![CDATA[<h3 id="Java爬取南通大学教务系统信息"><a href="#Java爬取南通大学教务系统信息" class="headerlink" title="Java爬取南通大学教务系统信息"></a>Java爬取南通大学教务系统信息</h3><p>注意：useragent等响应头（爬教务系统好像不需要）</p>
@@ -164,6 +151,22 @@
       </categories>
       <tags>
         <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高数小题积累</title>
+    <url>/2022/04/14/%E9%AB%98%E6%95%B0%E5%B0%8F%E9%A2%98%E7%A7%AF%E7%B4%AF/</url>
+    <content><![CDATA[<h1 id="高数小题"><a href="#高数小题" class="headerlink" title="高数小题"></a>高数小题</h1><h2 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h2><p><strong>不定积分的小题是高数最基础的部分，在平时的练习中，我抄录了部分典型例题，这部分例题会涵盖大部分不定积分计算的方法，熟练这部分例题可以秒杀不定积分</strong></p>
+<p><strong>例题：</strong></p>
+<p><img src="/img/math/1.jpg" alt="不定积分（1）"></p>
+<p><strong>答案：</strong></p>
+<p>（答案是我自己计算所得，如果有错误欢迎指正）</p>
+]]></content>
+      <categories>
+        <category>高数</category>
+      </categories>
+      <tags>
+        <tag>高数小题</tag>
       </tags>
   </entry>
 </search>
