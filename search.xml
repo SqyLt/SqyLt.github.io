@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Java爬取南通大学教务系统信息</title>
+    <url>/2022/04/05/Java%E7%88%AC%E5%8F%96%E5%8D%97%E9%80%9A%E5%A4%A7%E5%AD%A6%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h3 id="Java爬取南通大学教务系统信息"><a href="#Java爬取南通大学教务系统信息" class="headerlink" title="Java爬取南通大学教务系统信息"></a>Java爬取南通大学教务系统信息</h3><p>注意：useragent等响应头（爬教务系统好像不需要）</p>
+<p>1、通过抓包获取学校的认证登录链接</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://authserver.ntu.edu.cn/authserver/login?service=http://tdjw.ntu.edu.cn/sso/jziotlogin</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>2、第一次发送get请求获取页面，并且解析，找到需要携带登录的参数，如lt 秘钥等等</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;execution=e1s1, password=+MwHdbut9wc6hIxuq3XG1lHcqFjyJOUBHfuXZFB7p/sJc6SSAp0V0eRJPRg8BWPiU+cEmP8qnlQfyH7HR6iJvxKexFDXTIpnsJ+J23cmWjI=, _eventId=submit, lt=LT-623944-hbUqGmrk6OuO0jPj6mBcmPWseDuCPq1641653523202-LqSD-cas, username=1930141729, dllt=userNamePasswordLogin, rmShown=1&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、第二次发送请求，带着需要的参数如学号密码等 发送post请求 如果登录成功会跳转，先阻止跳转，查看请求码是否是302  如果都满足的话就获取他的重定向的链接 并且获取此次请求的cookie 这里很重要！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;CASTGC=TGT-168457-amNCEJXhYIBJHAyI6T3rJCf4xh6l4m61UrbxCZajiIJj9kJYxG1641653717838-EIf3-cas, CASPRIVACY=, iPlanetDirectoryPro=xKdAcvwicaUnfNzcyTRg9e&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、带着第二次请求的cookie去请求成绩的接口就行 这里也有一些参数 需要自己去爬取</p>
+<p>成绩接口：<a href="http://tdjw.ntu.edu.cn/jwglxt/cjcx/cjcx_cxXsgrcj.html?doType=query&amp;gnmkdm=N305005">http://tdjw.ntu.edu.cn/jwglxt/cjcx/cjcx_cxXsgrcj.html?doType=query&amp;gnmkdm=N305005</a></p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown语法</title>
+    <url>/2022/04/06/Markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><h3 id="Tricks"><a href="#Tricks" class="headerlink" title="Tricks:"></a>Tricks:</h3><ol>
+<li>编辑时，<em><strong>Enter</strong></em>会空一行，<em><strong>Shift+Enter</strong></em>不空行 </li>
+<li>Markdown可以利用***反斜杠\***来插入一些在语法中有其它意义的符号。<br>例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。</li>
+</ol>
+<ul>
+<li><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h3></li>
+</ul>
+<p>用”#”加空格。<br>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p>
+<p>例：</p>
+<h2 id="我是标题"><a href="#我是标题" class="headerlink" title="我是标题"></a>我是标题</h2><ul>
+<li><h3 id="2-字体"><a href="#2-字体" class="headerlink" title="2.字体"></a>2.字体</h3></li>
+</ul>
+<p>**这是加粗的文字**<br>*这是倾斜的文字*<br>***这是斜体加粗的文字***<br>~~这是加删除线的文字~~</p>
+<p>注：</p>
+<p>例：</p>
+<p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br><em><strong>这是斜体加粗的文字</strong></em><br><del>这是加删除线的文字</del></p>
+<ul>
+<li><h3 id="3-区块引用"><a href="#3-区块引用" class="headerlink" title="3.区块引用"></a>3.区块引用</h3></li>
+</ul>
+<p>在段落的第一行最前面加”&gt;”</p>
+<p>例：</p>
+<blockquote>
+<p> 我是段落</p>
+</blockquote>
+<p>区块引用可以嵌套（例如：引用内的引用），只要根据层次加上不同数量的 &gt; ，</p>
+<p>区块内也可以套用其他的 Markdown 语法，包括加粗、列表、代码区块等。</p>
+<p>例：</p>
+<blockquote>
+<h3 id="我是第一层"><a href="#我是第一层" class="headerlink" title="我是第一层"></a>我是第一层</h3><blockquote>
+<p>我是第二层</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li><h3 id="3-列表"><a href="#3-列表" class="headerlink" title="3.列表"></a>3.列表</h3></li>
+</ul>
+<p>无序列表使用星号*、加号-或是减号+加空格作为列表标记，效果一样：</p>
+<p>例：</p>
+<ul>
+<li>第一步</li>
+<li>第二步</li>
+<li>第三步</li>
+</ul>
+<p>有序列表则使用数字接着一个英文句点加空格：</p>
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ol>
+<ul>
+<li><h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3></li>
+</ul>
+<p>三个或者三个以上的 - 或者 * 都可以。</p>
+<p>例：</p>
+<hr>
+<hr>
+<ul>
+<li><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3></li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line"><span class="bullet">-</span> 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 | 包起来。此处省略</span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th align="center">技能</th>
+<th align="right">排行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>刘备</td>
+<td align="center">哭</td>
+<td align="right">大哥</td>
+</tr>
+<tr>
+<td>关羽</td>
+<td align="center">打</td>
+<td align="right">二哥</td>
+</tr>
+<tr>
+<td>张飞</td>
+<td align="center">骂</td>
+<td align="right">三弟</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3></li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">`单行代码内容`</span></span><br><span class="line"><span class="code">```代码块```</span>左下角可以选择语言</span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<ol>
+<li><p>单行代码<br><code>print(&quot;helloworld!&quot;)</code></p>
+</li>
+<li><p>代码块</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3></li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接地址 &quot;超链接title&quot;</span>)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
+
+<p>例：<br><a href="http://jianshu.com/" title="jianshu">简书</a><br><a href="http://baidu.com/" title="baidu">百度</a></p>
+<ul>
+<li><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 <span class="string">&#x27;&#x27;</span>图片title<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<p><code>![例](/img/sqy1.jpg “例”)</code></p>
+<p>效果如下：</p>
+<p><img src="/img/sqy1.jpg" alt="例" title="例"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高数小题积累</title>
+    <url>/2022/04/14/%E9%AB%98%E6%95%B0%E5%B0%8F%E9%A2%98%E7%A7%AF%E7%B4%AF/</url>
+    <content><![CDATA[<h1 id="高数小题"><a href="#高数小题" class="headerlink" title="高数小题"></a>高数小题</h1><h2 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h2><p><strong>不定积分的小题是高数最基础的部分，在平时的练习中，我抄录了部分典型例题，这部分例题会涵盖大部分不定积分计算的方法，熟练这部分例题可以秒杀不定积分</strong></p>
+<p><img src="/img/sqy3.jpg" alt="不定积分（1）"></p>
+]]></content>
+      <categories>
+        <category>高数</category>
+      </categories>
+      <tags>
+        <tag>高数小题</tag>
+      </tags>
+  </entry>
+</search>
