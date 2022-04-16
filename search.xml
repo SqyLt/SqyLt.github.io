@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java爬取南通大学教务系统信息</title>
+    <url>/2022/04/05/Java%E7%88%AC%E5%8F%96%E5%8D%97%E9%80%9A%E5%A4%A7%E5%AD%A6%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h3 id="Java爬取南通大学教务系统信息"><a href="#Java爬取南通大学教务系统信息" class="headerlink" title="Java爬取南通大学教务系统信息"></a>Java爬取南通大学教务系统信息</h3><p>注意：useragent等响应头（爬教务系统好像不需要）</p>
+<p>1、通过抓包获取学校的认证登录链接</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://authserver.ntu.edu.cn/authserver/login?service=http://tdjw.ntu.edu.cn/sso/jziotlogin</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>2、第一次发送get请求获取页面，并且解析，找到需要携带登录的参数，如lt 秘钥等等</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;execution=e1s1, password=+MwHdbut9wc6hIxuq3XG1lHcqFjyJOUBHfuXZFB7p/sJc6SSAp0V0eRJPRg8BWPiU+cEmP8qnlQfyH7HR6iJvxKexFDXTIpnsJ+J23cmWjI=, _eventId=submit, lt=LT-623944-hbUqGmrk6OuO0jPj6mBcmPWseDuCPq1641653523202-LqSD-cas, username=1930141729, dllt=userNamePasswordLogin, rmShown=1&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、第二次发送请求，带着需要的参数如学号密码等 发送post请求 如果登录成功会跳转，先阻止跳转，查看请求码是否是302  如果都满足的话就获取他的重定向的链接 并且获取此次请求的cookie 这里很重要！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;CASTGC=TGT-168457-amNCEJXhYIBJHAyI6T3rJCf4xh6l4m61UrbxCZajiIJj9kJYxG1641653717838-EIf3-cas, CASPRIVACY=, iPlanetDirectoryPro=xKdAcvwicaUnfNzcyTRg9e&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、带着第二次请求的cookie去请求成绩的接口就行 这里也有一些参数 需要自己去爬取</p>
+<p>成绩接口：<a href="http://tdjw.ntu.edu.cn/jwglxt/cjcx/cjcx_cxXsgrcj.html?doType=query&amp;gnmkdm=N305005">http://tdjw.ntu.edu.cn/jwglxt/cjcx/cjcx_cxXsgrcj.html?doType=query&amp;gnmkdm=N305005</a></p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown语法</title>
     <url>/2022/04/06/Markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><h3 id="Tricks"><a href="#Tricks" class="headerlink" title="Tricks:"></a>Tricks:</h3><ol>
@@ -129,6 +154,22 @@
       </tags>
   </entry>
   <entry>
+    <title>高数备忘录</title>
+    <url>/2022/04/16/%E9%AB%98%E6%95%B0%E5%A4%87%E5%BF%98%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="高数备忘录"><a href="#高数备忘录" class="headerlink" title="高数备忘录"></a>高数备忘录</h1><p><strong>这部分是高数备忘录，会记录日常学习中遇到的一些易错题或者一些小技巧</strong></p>
+<h2 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h2><p><strong>1.分段函数求原函数（注意原函数在分界点处必须连续）</strong></p>
+<p><img src="/img/math/case3.jpg" alt="不定积分"></p>
+<p><strong>选择题可以通过原函数分界点是否连续来排除错误答案，如下方法2</strong></p>
+<p><img src="/img/math/case4.jpg" alt="不定积分"></p>
+]]></content>
+      <categories>
+        <category>高数</category>
+      </categories>
+      <tags>
+        <tag>高数备忘录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>高数小题积累</title>
     <url>/2022/04/14/%E9%AB%98%E6%95%B0%E5%B0%8F%E9%A2%98%E7%A7%AF%E7%B4%AF/</url>
     <content><![CDATA[<h1 id="高数小题"><a href="#高数小题" class="headerlink" title="高数小题"></a>高数小题</h1><h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><p><strong>极限部分包括了基础和提升题</strong></p>
@@ -154,31 +195,6 @@
       </categories>
       <tags>
         <tag>高数小题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java爬取南通大学教务系统信息</title>
-    <url>/2022/04/05/Java%E7%88%AC%E5%8F%96%E5%8D%97%E9%80%9A%E5%A4%A7%E5%AD%A6%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h3 id="Java爬取南通大学教务系统信息"><a href="#Java爬取南通大学教务系统信息" class="headerlink" title="Java爬取南通大学教务系统信息"></a>Java爬取南通大学教务系统信息</h3><p>注意：useragent等响应头（爬教务系统好像不需要）</p>
-<p>1、通过抓包获取学校的认证登录链接</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://authserver.ntu.edu.cn/authserver/login?service=http://tdjw.ntu.edu.cn/sso/jziotlogin</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>2、第一次发送get请求获取页面，并且解析，找到需要携带登录的参数，如lt 秘钥等等</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;execution=e1s1, password=+MwHdbut9wc6hIxuq3XG1lHcqFjyJOUBHfuXZFB7p/sJc6SSAp0V0eRJPRg8BWPiU+cEmP8qnlQfyH7HR6iJvxKexFDXTIpnsJ+J23cmWjI=, _eventId=submit, lt=LT-623944-hbUqGmrk6OuO0jPj6mBcmPWseDuCPq1641653523202-LqSD-cas, username=1930141729, dllt=userNamePasswordLogin, rmShown=1&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3、第二次发送请求，带着需要的参数如学号密码等 发送post请求 如果登录成功会跳转，先阻止跳转，查看请求码是否是302  如果都满足的话就获取他的重定向的链接 并且获取此次请求的cookie 这里很重要！</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;CASTGC=TGT-168457-amNCEJXhYIBJHAyI6T3rJCf4xh6l4m61UrbxCZajiIJj9kJYxG1641653717838-EIf3-cas, CASPRIVACY=, iPlanetDirectoryPro=xKdAcvwicaUnfNzcyTRg9e&#125;</span><br></pre></td></tr></table></figure>
-
-<p>4、带着第二次请求的cookie去请求成绩的接口就行 这里也有一些参数 需要自己去爬取</p>
-<p>成绩接口：<a href="http://tdjw.ntu.edu.cn/jwglxt/cjcx/cjcx_cxXsgrcj.html?doType=query&amp;gnmkdm=N305005">http://tdjw.ntu.edu.cn/jwglxt/cjcx/cjcx_cxXsgrcj.html?doType=query&amp;gnmkdm=N305005</a></p>
-]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
       </tags>
   </entry>
 </search>
